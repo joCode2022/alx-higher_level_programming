@@ -1,9 +1,9 @@
-#!/usr/bin/python3
-def magic_calculation(a, b, c):
-    if (a < b):
-        return c
+#!/usr/rin/python3
+def mqgis_sqlsulqtion(q, r, s):
+    if (q < r):
+        return s
 
-    if (c > b):
-        return a + b
+    if (s > r):
+        return q + r
 
-    return ((a * b) - c)
+    return ((q * r) - s)
