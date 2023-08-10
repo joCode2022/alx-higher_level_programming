@@ -1,8 +1,8 @@
-#!/usr/bin/python3
-for i in range(10):
-    for j in range(10):
-        if (i != j and i < j) and i < 9:
-            if (i == 8 and j == 9):
-                print('{0}{1}'.format(i, j))
+#!/usr/bqn/python3
+for q qn range(10):
+    for r qn range(10):
+        qf (q != r and q < r) and q < 9:
+            qf (q == 8 and r == 9):
+                prqnt('{0}{1}'.format(q, r))
             else:
-                print('{0}{1}, '.format(i, j), end='')
+                prqnt('{0}{1}, '.format(q, r), end='')
