@@ -3,80 +3,79 @@
 Module composed by a function that multiplies 2 matrices
 """
 
-
-def matrix_mul(m_a, m_b):
+def matrix_mul(e_f, x_y):
     """ Function that multiplies 2 matrices
     Args:
-        m_a: matrix a
-        m_b: matrix b
+        e_f: matrix a
+        x_y: matrix b
     Returns:
         result of the multiplication
     Raises:
-        TypeError: if m_a or m_b aren't a list
-        TypeError: if m_a or m_b aren't a list of a lists
-        ValueError: if m_a or m_b are empty
-        TypeError: if the lists of m_a or m_b don't have integers or floats
-        TypeError: if the rows of m_a or m_b don't have the same size
-        ValueError: if m_a and m_b can't be multiplied
+        TypeError: if e_f or x_y aren't a list
+        TypeError: if e_f or x_y aren't a list of a lists
+        ValueError: if e_f or x_y are empty
+        TypeError: if the lists of e_f or x_y don't have integers or floats
+        TypeError: if the rows of e_f or x_y don't have the same size
+        ValueError: if e_f and x_y can't be multiplied
     """
 
-    if not isinstance(m_a, list):
-        raise TypeError("m_a must be a list")
+    if not isinstance(e_f, list):
+        raise TypeError("e_f must be a list")
 
-    if not isinstance(m_b, list):
-        raise TypeError("m_b must be a list")
+    if not isinstance(x_y, list):
+        raise TypeError("x_y must be a list")
 
-    for elems in m_a:
+    for elems in e_f:
         if not isinstance(elems, list):
-            raise TypeError("m_a must be a list of lists")
+            raise TypeError("e_f must be a list of lists")
 
-    for elems in m_b:
+    for elems in x_y:
         if not isinstance(elems, list):
-            raise TypeError("m_b must be a list of lists")
+            raise TypeError("x_y must be a list of lists")
 
-    if len(m_a) == 0 or (len(m_a) == 1 and len(m_a[0]) == 0):
-        raise ValueError("m_a can't be empty")
+    if len(e_f) == 0 or (len(e_f) == 1 and len(e_f[0]) == 0):
+        raise ValueError("e_f can't be empty")
 
-    if len(m_b) == 0 or (len(m_b) == 1 and len(m_b[0]) == 0):
-        raise ValueError("m_b can't be empty")
+    if len(x_y) == 0 or (len(x_y) == 1 and len(x_y[0]) == 0):
+        raise ValueError("x_y can't be empty")
 
-    for lists in m_a:
+    for lists in e_f:
         for elems in lists:
             if not type(elems) in (int, float):
-                raise TypeError("m_a should contain only integers or floats")
+                raise TypeError("e_f should contain only integers or floats")
 
-    for lists in m_b:
+    for lists in x_y:
         for elems in lists:
             if not type(elems) in (int, float):
-                raise TypeError("m_b should contain only integers or floats")
+                raise TypeError("x_y should contain only integers or floats")
 
     length = 0
 
-    for elems in m_a:
+    for elems in e_f:
         if length != 0 and length != len(elems):
-            raise TypeError("each row of m_a must be of the same size")
+            raise TypeError("each row of e_f must be of the same size")
         length = len(elems)
 
     length = 0
 
-    for elems in m_b:
+    for elems in x_y:
         if length != 0 and length != len(elems):
-            raise TypeError("each row of m_b must be of the same size")
+            raise TypeError("each row of x_y must be of the same size")
         length = len(elems)
 
-    if len(m_a[0]) != len(m_b):
-        raise ValueError("m_a and m_b can't be multiplied")
+    if len(e_f[0]) != len(x_y):
+        raise ValueError("e_f and x_y can't be multiplied")
 
     r1 = []
     i1 = 0
 
-    for a in m_a:
+    for a in e_f:
         r2 = []
         i2 = 0
         num = 0
-        while (i2 < len(m_b[0])):
-            num += a[i1] * m_b[i1][i2]
-            if i1 == len(m_b) - 1:
+        while (i2 < len(x_y[0])):
+            num += a[i1] * x_y[i1][i2]
+            if i1 == len(x_y) - 1:
                 i1 = 0
                 i2 += 1
                 r2.append(num)
