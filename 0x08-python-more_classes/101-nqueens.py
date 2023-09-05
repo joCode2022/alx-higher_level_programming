@@ -1,8 +1,7 @@
 #!/usr/bin/python3
-"""Solves the N-queens puzzle"""
+"""Solveing  the N-queens puzzles"""
 
 import sys
-
 
 def init_board(n):
     """Initialize an `n`x`n` sized chessboard with 0's."""
@@ -11,13 +10,11 @@ def init_board(n):
     [row.append(' ') for i in range(n) for row in board]
     return (board)
 
-
 def board_deepcopy(board):
     """Return a deepcopy of a chessboard."""
     if isinstance(board, list):
         return list(map(board_deepcopy, board))
     return (board)
-
 
 def get_solution(board):
     """Return the list of lists representation of a solved chessboard."""
