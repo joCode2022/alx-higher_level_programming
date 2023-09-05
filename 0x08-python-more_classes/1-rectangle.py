@@ -1,34 +1,35 @@
 #!/usr/bin/python3
 """A class that defines a rectangle"""
 
+
 class Rectangle:
     """The Rectangle class"""
-    def __init__(self, w=0, h=0):
-        self.h = h
-        self.w = w
+    def __init__(self, width=0, height=0):
+        self.height = height
+        self.width = width
 
     @property
-    def w(self):
-        return self.__w
+    def width(self):
+        return self.__width
 
-    @w.setter
-    def w(self, value):
+    @width.setter
+    def width(self, value):
         if type(value) is not int:
-            raise TypeError("w must be an integer")
+            raise TypeError("width must be an integer")
         if value < 0:
-            raise ValueError("w must be >= 0")
+            raise ValueError("width must be >= 0")
 
-        self.__w = value
+        self.__width = value
 
     @property
-    def h(self):
-        return self.__h
+    def height(self):
+        return self.__height
 
-    @h.setter
-    def h(self, value):
+    @height.setter
+    def height(self, value):
         if type(value) is not int:
-            raise TypeError("h must be an integer")
+            raise TypeError("height must be an integer")
         if value < 0:
-            raise ValueError("h must be >= 0")
+            raise ValueError("height must be >= 0")
 
-        self.__h = value
+        self.__height = value
