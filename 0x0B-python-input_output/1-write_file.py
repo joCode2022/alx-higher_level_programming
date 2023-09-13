@@ -3,7 +3,6 @@
 Counts number of lines in a file.
 """
 
-
 def number_of_lines(filename=""):
     """Counts lines in filename.
 
@@ -17,8 +16,8 @@ def number_of_lines(filename=""):
 
     count = 0
 
-    with open(filename) as f:
-        text = f.readlines()
+    with open(filename) as f_n:
+        text = f_n.readlines()
         for line in text:
             count += 1
 
