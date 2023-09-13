@@ -2,26 +2,23 @@
 """Reads from standard input and computes metrics.
 After every ten lines or the input of a keyboard interruption (CTRL + C),
 prints the following statistics:
-    - Total file size up to that point.
+    - Total file sz up to that point.
     - Count of read status codes up to that point.
 """
-
-
-def print_stats(size, status_codes):
+def print_stats(sz, status_codes):
     """Print accumulated metrics.
     Args:
-        size (int): The accumulated read file size.
+        sz (int): The accumulated read file sz.
         status_codes (dict): The accumulated count of status codes.
     """
-    print("File size: {}".format(size))
+    print("File sz: {}".format(sz))
     for key in sorted(status_codes):
         print("{}: {}".format(key, status_codes[key]))
-
 
 if __name__ == "__main__":
     import sys
 
-    size = 0
+    sz = 0
     status_codes = {}
     valid_codes = ['200', '301', '400', '401', '403', '404', '405', '500']
     count = 0
@@ -29,7 +26,7 @@ if __name__ == "__main__":
     try:
         for line in sys.stdin:
             if count == 10:
-                print_stats(size, status_codes)
+                print_stats(sz, status_codes)
                 count = 1
             else:
                 count += 1
@@ -37,7 +34,7 @@ if __name__ == "__main__":
             line = line.split()
 
             try:
-                size += int(line[-1])
+                sz += int(line[-1])
             except (IndexError, ValueError):
                 pass
 
@@ -50,8 +47,8 @@ if __name__ == "__main__":
             except IndexError:
                 pass
 
-        print_stats(size, status_codes)
+        print_stats(sz, status_codes)
 
     except KeyboardInterrupt:
-        print_stats(size, status_codes)
+        print_stats(sz, status_codes)
         raise
