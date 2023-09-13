@@ -2,8 +2,6 @@
 """Module 11-student.
 Creates a Student class.
 """
-
-
 class Student:
     """Class that defines a student.
     Public attributes:
@@ -13,7 +11,6 @@ class Student:
     Public method to_json().
     Public method reload_from_json().
     """
-
     def __init__(self, first_name, last_name, age):
         """Initializes the Student instance."""
 
@@ -42,6 +39,5 @@ class Student:
         Args:
             - json: dictionnary of attributes
         """
-
         for x in json:
             self.__dict__.update({x: json[x]})
