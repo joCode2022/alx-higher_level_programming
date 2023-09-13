@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """1-my_list module
 """
-
-
 class MyList(list):
     """_A class that inherits from list
     Args:
