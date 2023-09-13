@@ -2,11 +2,8 @@
 """Module 10-square.
 Creates a Square class.
 """
-
-
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
 Rectangle = __import__('9-rectangle').Rectangle
-
 
 class Square(Rectangle):
     """Represents a square.
@@ -32,5 +29,4 @@ class Square(Rectangle):
         """Computes the area of a Square instance.
         Overwrites the area() method from Rectangle.
         """
-
         return self.__size ** 2
