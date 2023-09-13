@@ -2,8 +2,6 @@
 """Module 100-my_int.
 Creates a class that inherits from int.
 """
-
-
 class MyInt(int):
     """Class inheriting from int,
     But reverses the behavior of != and ==.
