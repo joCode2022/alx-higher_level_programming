@@ -2,12 +2,9 @@
 """Module 10-student.
 Creates a Student class.
 """
-
-
 class Student:
     """Class that defines a student.
     Public attributs:
-
         - first_name
         - last_name
         - age
