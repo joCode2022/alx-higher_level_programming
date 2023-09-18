@@ -3,15 +3,14 @@
 """
 from models.base import Base
 
-
 class Rectangle(Base):
     """Inherits from Base
     """
 
-    def __init__(self, width, height, x=0, y=0, id=None):
+    def __init__(self, width, hgt, x=0, y=0, id=None):
         super().__init__(id)
         self.width = width
-        self.height = height
+        self.hgt = hgt
         self.x = x
         self.y = y
 
@@ -28,16 +27,16 @@ class Rectangle(Base):
         self.__width = value
 
     @property
-    def height(self):
-        return self.__height
+    def hgt(self):
+        return self.__hgt
 
-    @height.setter
-    def height(self, value):
+    @hgt.setter
+    def hgt(self, value):
         if type(value) != int:
-            raise TypeError("height must be an integer")
+            raise TypeError("hgt must be an integer")
         if value <= 0:
-            raise ValueError("height must be > 0")
-        self.__height = value
+            raise ValueError("hgt must be > 0")
+        self.__hgt = value
 
     @property
     def x(self):
@@ -67,7 +66,7 @@ class Rectangle(Base):
         """Returns area of the rectangle
         """
 
-        return self.__width * self.__height
+        return self.__width * self.__hgt
 
     def display(self):
         """Returns printed rectangle with '#'
@@ -78,7 +77,7 @@ class Rectangle(Base):
             for newline in range(self.__y):
                 print()
 
-        for row in range(self.__height):
+        for row in range(self.__hgt):
             print((self.__x * " ") + (self.__width * '#'))
 
     def __str__(self):
@@ -87,7 +86,7 @@ class Rectangle(Base):
 
         return "[{}] ({}) {}/{} - {}/{}".format(self.__class__.__name__,
                                                 self.id, self.__x, self.__y,
-                                                self.__width, self.__height)
+                                                self.__width, self.__hgt)
 
     def update(self, *args, **kwargs):
         """Updates rectangle values
@@ -100,7 +99,7 @@ class Rectangle(Base):
             try:
                 self.id = args[0]
                 self.__width = args[1]
-                self.__height = args[2]
+                self.__hgt = args[2]
                 self.__x = args[3]
                 self.__y = args[4]
             except IndexError:
@@ -113,4 +112,4 @@ class Rectangle(Base):
         """
 
         return {'x': self.__x, 'y': self.__y, 'id': self.id,
-                'height': self.__height, 'width': self.__width}
+                'hgt': self.__hgt, 'width': self.__width}
